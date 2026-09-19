@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+<nav class="navbar dashboard-nav">
+
+    <div class="logo">
+        🍴 Recipe<span>Share</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">Dashboard</a>
+
+      <button id="logoutbtn">logout</button>
+
+    </div>
+
+</nav>
+
+
+<main class="dashboard">
+
+    <div class="welcome">
+
+        <div>
+            <p class="small-title">WELCOME BACK 👋</p>
+
+            <h1>
+                Hello, <span id="userName">Chef</span>!
+            </h1>
+
+            <p>
+                Ready to discover something delicious today?
+            </p>
+        </div>
+
+        <button class="add-recipe-btn">
+            + Add Recipe
+        </button>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">🍳</div>
+            <div>
+                <h3>24</h3>
+                <p>Total Recipes</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <div>
+                <h3>18</h3>
+                <p>Favorites</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">👨‍🍳</div>
+            <div>
+                <h3>8</h3>
+                <p>My Recipes</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="recipe-section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Recent Recipes</h2>
+                <p>Explore delicious recipes from our community.</p>
+            </div>
+
+            <div class="search-box">
+                🔍
+                <input
+                    type="text"
+                    placeholder="Search recipes..."
+                >
+            </div>
+
+        </div>
+
+
+        <div class="recipe-grid">
+
+            <div class="recipe-card">
+
+                <div class="recipe-image pasta">
+                    🍝
+                </div>
+
+                <div class="recipe-content">
+
+                    <span class="category">
+                        Italian
+                    </span>
+
+                    <h3>Creamy Pasta</h3>
+
+                    <p>
+                        Delicious creamy pasta with fresh herbs.
+                    </p>
+
+                    <div class="recipe-bottom">
+                        <span>⭐ 4.9</span>
+                        <span>⏱ 25 min</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card">
+
+                <div class="recipe-image burger">
+                    🍔
+                </div>
+
+                <div class="recipe-content">
+
+                    <span class="category">
+                        Fast Food
+                    </span>
+
+                    <h3>Classic Burger</h3>
+
+                    <p>
+                        Juicy homemade burger with fresh vegetables.
+                    </p>
+
+                    <div class="recipe-bottom">
+                        <span>⭐ 4.8</span>
+                        <span>⏱ 20 min</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card">
+
+                <div class="recipe-image biryani">
+                    🍛
+                </div>
+
+                <div class="recipe-content">
+
+                    <span class="category">
+                        Pakistani
+                    </span>
+
+                    <h3>Chicken Biryani</h3>
+
+                    <p>
+                        Aromatic and spicy traditional biryani.
+                    </p>
+
+                    <div class="recipe-bottom">
+                        <span>⭐ 5.0</span>
+                        <span>⏱ 50 min</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./bootstrap.js"></script>
+    <script  src="./app.js"></script>
+
+</body>
+</html>
+</body>
+</html>

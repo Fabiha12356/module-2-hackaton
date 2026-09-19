@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <div class="auth-left">
+
+        <div class="auth-brand">🍴 Recipe<span>Share</span></div>
+
+        <h1>Join RecipeShare</h1>
+
+        <p>
+            Create your account and start sharing
+            your favorite recipes.
+        </p>
+
+        <div class="auth-food">👨‍🍳</div>
+
+    </div>
+
+
+    <div class="auth-box">
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+        <h2>Create Account</h2>
+
+        <p class="auth-subtitle">
+            Join our recipe community
+        </p>
+
+        <form id="signupForm">
+
+
+            <input
+                type="text"
+                id="signupName"
+                placeholder="Enter your name"
+                name="username"
+            >
+
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Enter your email"
+                name="email"
+            >
+
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Create a password"
+                name="password"
+            >
+
+            <button type="submit" class="auth-btn">
+                Create Account →
+            </button>
+
+        </form>
+
+        <p class="switch-auth">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+        <p id="signupMessage" class="message"></p>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./bootstrap.js"></script>
+    <script  src="./app.js"></script>
+
+
+</body>
+</html>
+</body>
+</html>
