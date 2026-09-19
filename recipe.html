@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./recipe.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        🍴 Recipe<span>Share</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="index.html" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ADD RECIPE PAGE -->
+
+<main class="add-recipe-page">
+
+    <div class="add-recipe-header">
+
+        <div>
+            <a href="dashboard.html" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+            <h1>Add New Recipe</h1>
+
+            <p>
+                Share your favorite recipe with the RecipeShare community.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="recipe-form-card">
+
+        <form id="recipefrom">
+
+            <!-- IMAGE UPLOAD -->
+
+            <div class="recipe-image-upload">
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h3>Recipe Image</h3>
+
+                <p>
+                    Upload a beautiful image of your dish
+                </p>
+
+                <label for="recipeImage" class="upload-btn">
+                    Choose Image
+                </label>
+
+                <input
+                    type="file"
+                    id="recipeImage"
+                    accept="image/*"
+                >
+
+                <small>
+                    JPG, PNG or WEBP • Max 5MB
+                </small>
+
+            </div>
+
+
+            <!-- BASIC INFORMATION -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+                    <span>🍽️</span>
+
+                    <div>
+                        <h2>Recipe Information</h2>
+
+                        <p>
+                            Tell us about your delicious recipe.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <!-- RECIPE NAME -->
+
+                    <div class="form-group full-width">
+
+                        <label for="recipeName">
+                            Recipe Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="recipeName"
+                            placeholder="e.g. Creamy Chicken Pasta"
+                            name="recipename"
+                        >
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Category
+                            <span>*</span>
+                        </label>
+
+                        <select id="category" name="category">
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                            <option value=" Pakistani">
+                                Pakistani
+                            </option>
+
+                            <option value="Fast Food">
+                                Fast Food
+                            </option>
+
+                            <option value=" Italian">
+                                Italian
+                            </option>
+
+                            <option value="Chinese">
+                                Chinese
+                            </option>
+
+                            <option value=" Desserts">
+                                Desserts
+                            </option>
+
+                            <option value="Breakfast">
+                                Breakfast
+                            </option>
+
+                            <option value=" Drinks">
+                                Drinks
+                            </option>
+
+                            <option value=" Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- COOKING TIME -->
+
+                    <div class="form-group">
+
+                        <label for="cookingTime">
+                            Cooking Time
+                            <span>*</span>
+                        </label>
+
+                        <select id="cookingTime" name="cookingTime">
+
+                            <option value="">
+                                Select Time
+                            </option>
+
+                            <option value="Under 15 minutes">
+                                Under 15 minutes
+                            </option>
+
+                            <option value="15 - 30 minutes">
+                                15 - 30 minutes
+                            </option>
+
+                            <option value="    30 - 60 minutes">
+                                30 - 60 minutes
+                            </option>
+
+                            <option value="   1 - 2 hours">
+                                1 - 2 hours
+                            </option>
+
+                            <option value=" 2+ hours">
+                                2+ hours
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DIFFICULTY -->
+
+                    <!-- <div class="form-group">
+
+                        <label for="difficulty">
+                            Difficulty
+                        </label>
+
+                        <select id="difficulty">
+
+                            <option value="">
+                                Select Difficulty
+                            </option>
+
+                            <option>
+                                Easy
+                            </option>
+
+                            <option>
+                                Medium
+                            </option>
+
+                            <option>
+                                Hard
+                            </option>
+
+                        </select>
+
+                    </div> -->
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full-width">
+
+                        <label for="description">
+                            Description
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="5"
+                            placeholder="Describe your recipe, its taste, special ingredients or anything you'd like people to know..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INGREDIENTS -->
+
+            <!-- <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <span>🥕</span>
+
+                    <div>
+                        <h2>Ingredients</h2>
+
+                        <p>
+                            Add the ingredients needed for this recipe.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="ingredients-box">
+
+                    <textarea
+                        id="ingredients"
+                        rows="6"
+                        placeholder="Example:
+
+2 cups flour
+1 cup milk
+2 eggs
+1 tsp salt
+1 tbsp butter"
+                    ></textarea>
+
+                </div>
+
+            </div> -->
+
+
+            <!-- INSTRUCTIONS -->
+<!-- 
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <span>👨‍🍳</span>
+
+                    <div>
+                        <h2>Cooking Instructions</h2>
+
+                        <p>
+                            Explain how to prepare your recipe step by step.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    id="instructions"
+                    class="instructions-textarea"
+                    rows="7"
+                    placeholder="Example:
+
+1. Prepare all the ingredients.
+2. Heat the pan over medium heat.
+3. Add the ingredients and cook for 10 minutes.
+4. Serve hot and enjoy!"
+                ></textarea>
+
+            </div> -->
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+                <button
+                    type="submit"
+                    class="save-recipe-btn"
+                >
+                    🍳 Publish Recipe
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./bootstrap.js"></script>
+    <script  src="./app.js"></script>
+
+</body>
+</html>
+</body>
+</html>

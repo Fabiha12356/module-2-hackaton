@@ -8,7 +8,6 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 let loginbtn = document.querySelector("#loginbtn");
 let signupbtn = document.querySelector("#signupbtn");
-let logoutbtn = document.querySelector("#logoutbtn");
 let signupForm = document.querySelector("#signupForm");
 let loginForm = document.querySelector("#loginForm");
 let inputs =document.querySelectorAll("input");
@@ -138,14 +137,44 @@ if (data.session) {
 });
 
 
+let recipefrom = document.querySelector("#recipefrom");
+console.log(recipefrom);
 
-logoutbtn.addEventListener("click",async()=>{
-     const { error } = await client.auth.signOut()
-if(error){
-    console.log("okk");
-}else{
-    console.log("signout!");
-    window.location.href = "index.html"
-}
-})
+
+recipefrom && recipefrom.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+
+    let userDta =  new FormData(recipefrom)
+console.log(userDta);
+let userInfo = Object.fromEntries(userDta);
+console.log(userInfo);
+
+  let flag = true;
+
+    for (let value of Object.values(userInfo)) {
+
+        if (typeof value === "string" && value.trim() === "") {
+            flag = false;
+            break;
+        }
+
+    }
+
+    if (!flag) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    alert("All fields filled ✅");
+    console.log(userInfo);
+    window.location.href = "dashboard.html"
+
+
+});
+
+
+
+
+
 
