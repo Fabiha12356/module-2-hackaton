@@ -11,7 +11,22 @@ const client = createClient(supabaseUrl, supabaseKey);
 let recipefrom = document.querySelector("#recipefrom");
 console.log(recipefrom);
 
+let file;
+let imageURL;
+let  avatarFile ;
 
+let recipeImage = document.querySelector("#recipeImage");
+let Recipe_imgdiv = document.querySelector("#Recipe-imgdiv");
+
+recipeImage.addEventListener("change",()=>{
+    console.log("okkkkkkk")
+    console.log(recipeImage.files[0]);
+       file = recipeImage.files[0];
+      imageURL = URL.createObjectURL(file);
+    console.log(imageURL);
+console.log(file)
+Recipe_imgdiv.innerHTML = `<img src="${imageURL}" alt="pic">`
+})
 
 
 recipefrom && recipefrom.addEventListener("submit",async(e)=>{
@@ -19,11 +34,6 @@ recipefrom && recipefrom.addEventListener("submit",async(e)=>{
     let userDta =  new FormData(recipefrom)
 console.log(userDta);
 let userInfo = Object.fromEntries(userDta);
-console.log(userInfo);
-console.log(userInfo.recipename);
-console.log(userInfo.category);
-console.log(userInfo.cookingTime);
-console.log(userInfo.description);
 
   let flag = true;
 
@@ -40,8 +50,25 @@ console.log(userInfo.description);
         return;
     }
 
-    alert("All fields filled ✅");
-    console.log(userInfo);
+    // IMAGE:-
+  avatarFile = recipeImage.files[0];
+const { data, error:imageerror } = await client
+  .storage
+  .from('images')
+  .upload(avatarFile.name, avatarFile, {
+    cacheControl: '0',
+    upsert: false
+    })
+  console.log(data);
+  console.log(imageerror);
+  
+if(data){
+    console.log("data come")
+}else{
+    console.log(imageerror);
+}
+
+    //RECIPE
     const { error } = await client
   .from('Receipe')
   .insert({ 
@@ -50,6 +77,7 @@ console.log(userInfo.description);
             "cookingTime": userInfo.cookingTime,
             "description": userInfo.description
    })
+//CONDITIONS:-
 if(error){
     console.log(error);
      Swal.fire({
@@ -68,3 +96,4 @@ if(error){
 window.location.href = "dashboard.html";
 }
 });
+
