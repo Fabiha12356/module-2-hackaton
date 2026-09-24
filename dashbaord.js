@@ -8,9 +8,9 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 let span = document.querySelector("#userName");
 let recipebtn = document.querySelector("#recipebtn");
-console.log(recipebtn);
-console.log(span);
-console.log(span.innerHTML);
+// console.log(recipebtn);
+// console.log(span);
+// console.log(span.innerHTML);
 
 
 
@@ -41,8 +41,7 @@ getuser();
 
 // events:
 
-
- logoutbtn.addEventListener("click",async()=>{
+ logoutbtn && logoutbtn.addEventListener("click",async()=>{
      const { error } = await client.auth.signOut()
 if(error){
     console.log("okk");
@@ -52,12 +51,57 @@ if(error){
 }
 });
 
-
-recipebtn.addEventListener("click",()=>{
-    window.location.href = "recipe.html"
-});
-
 let mainid = document.querySelector("#mainid");
 console.log(mainid.innerHTML);
 
+ recipebtn && recipebtn.addEventListener("click",()=>{
+    window.location.href = "recipe.html"
+});
 
+// if(window.location.pathname === "/dasboard.html"){
+//      mainid.innerHTML +=`<div class="recipe-card">
+
+//                 <div class="recipe-image pasta">
+//                     ❤️
+//                 </div>
+
+//                 <div class="recipe-content">
+
+//                     <span class="category">
+//                         heart
+//                     </span>
+
+//                     <h3>Creamy Pasta</h3>
+
+//                     <p>
+//                         Delicious creamy pasta with fresh herbs.
+//                     </p>
+
+//                     <div class="recipe-bottom">
+//                         <span>⭐ 4.9</span>
+//                         <span>⏱ 25 min</span>
+//                     </div>
+
+//                 </div>
+
+//             </div>
+//     `
+
+// }else{
+//     console.log("okkkkkkk");
+// }
+
+
+
+
+
+let getrecipe = async()=>{
+    const { data: recipes, error } = await client
+    .from("Receipe")
+    .select("*");
+
+console.log("RECIPES:", recipes);
+console.log("ERROR:", error);
+}
+
+getrecipe();

@@ -137,42 +137,6 @@ if (data.session) {
 });
 
 
-let recipefrom = document.querySelector("#recipefrom");
-console.log(recipefrom);
-
-
-recipefrom && recipefrom.addEventListener("submit",(e)=>{
-    e.preventDefault();
-
-
-    let userDta =  new FormData(recipefrom)
-console.log(userDta);
-let userInfo = Object.fromEntries(userDta);
-console.log(userInfo);
-
-  let flag = true;
-
-    for (let value of Object.values(userInfo)) {
-
-        if (typeof value === "string" && value.trim() === "") {
-            flag = false;
-            break;
-        }
-
-    }
-
-    if (!flag) {
-        alert("Please fill all fields");
-        return;
-    }
-
-    alert("All fields filled ✅");
-    console.log(userInfo);
-    window.location.href = "dashboard.html"
-
-
-});
-
 
 
 
