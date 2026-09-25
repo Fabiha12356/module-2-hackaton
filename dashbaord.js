@@ -92,8 +92,8 @@ recipes.forEach((recipe) => {
     `;
 });
 
-let editbtn = document.querySelector(".editbtn");
-let deletbtn = document.querySelector(".deletebtn");
+let editbtn = document.querySelectorAll(".editbtn");
+let deletbtn = document.querySelectorAll(".deletebtn");
 
 console.log(editbtn , deletbtn);
 
@@ -142,6 +142,19 @@ const { error } = await client
 
 })
 
+deletbtn.forEach((btn,index) =>{
+    btn.addEventListener("click",async(e)=>{
+  e.preventDefault();
+  let student = recipes[index];
+  console.log(student.id);
+  // Deleted
+  const response = await client
+  .from('Receipe')
+  .delete()
+  .eq('id', student.id);
+  window.location.reload();
+    })
+})
 
 };
 
