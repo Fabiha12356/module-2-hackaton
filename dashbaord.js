@@ -84,16 +84,63 @@ recipes.forEach((recipe) => {
                 </div>
 
                  <div class="recipe-bottom">
-                       <button>Edit</button>
-                       <button>Delete</button>
-                       
+                       <button class="editbtn">Edit</button>
+                       <button class="deletebtn">Delete</button>  
                     </div>
-
             </div>
-
         </div>
     `;
 });
+
+let editbtn = document.querySelector(".editbtn");
+let deletbtn = document.querySelector(".deletebtn");
+
+console.log(editbtn , deletbtn);
+
+editbtn.forEach((btn , index) =>{
+       btn.addEventListener("click",async()=>{
+      let student = recipes[index];
+      console.log(student);
+  //sweets alerts :-
+  const { value: formValues } = await Swal.fire({
+  title: "Multiple inputs",
+  html: `
+    <input id="swal-input1" class="swal2-input" placeholder="Name" value="${student.category}">
+    <input id="swal-input2" class="swal2-input" placeholder="Course" value="${student.recipename}">
+    <input id="swal-input3" class="swal2-input" placeholder="Course" value="${student.description}">
+    <input id="swal-input4" class="swal2-input" placeholder="Course" value="${student.cookingTime}">
+
+
+  `,
+  focusConfirm: false,
+  preConfirm: () => {
+    return [document.getElementById("swal-input1").value,
+       document.getElementById("swal-input2").value,
+       document.getElementById("swal-input3").value,
+       document.getElementById("swal-input4").value
+    ];
+  }
+}
+);
+console.log(formValues);
+
+const updateDta ={
+  category : formValues[0],
+  recipename: formValues[1],
+  description: formValues[2],
+  cookingTime: formValues[3],
+}
+
+const { error } = await client
+  .from('Receipe')
+  .update(updateDta)
+  .eq('id', student.id);
+
+  window.location.reload();
+
+})
+
+})
 
 
 };
@@ -120,51 +167,6 @@ if(error){
     window.location.href = "recipe.html"
 });
 
-// if(window.location.pathname === "/dasboard.html"){
-//      mainid.innerHTML +=`<div class="recipe-card">
-
-//                 <div class="recipe-image pasta">
-//                     ❤️
-//                 </div>
-
-//                 <div class="recipe-content">
-
-//                     <span class="category">
-//                         heart
-//                     </span>
-
-//                     <h3>Creamy Pasta</h3>
-
-//                     <p>
-//                         Delicious creamy pasta with fresh herbs.
-//                     </p>
-
-//                     <div class="recipe-bottom">
-//                         <span>⭐ 4.9</span>
-//                         <span>⏱ 25 min</span>
-//                     </div>
-
-//                 </div>
-
-//             </div>
-//     `
-
-// }else{
-//     console.log("okkkkkkk");
-// }
 
 
 
-
-
-// let getrecipe = async()=>{
-//     const { data: recipes, error } = await client
-//     .from("Receipe")
-//     .select("*")
-//      .eq("users-id", user.id);
-
-// console.log("RECIPES:", recipes);
-// console.log("ERROR:", error);
-// }
-
-// getrecipe();
