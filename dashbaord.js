@@ -12,7 +12,7 @@ let recipebtn = document.querySelector("#recipebtn");
 // console.log(span);
 // console.log(span.innerHTML);
 
-
+let user;
 
 //fuction
 let getuser = async () => {
@@ -26,12 +26,25 @@ let getuser = async () => {
         return;
     }
 
-    const user = authData.user;
+     user = authData.user;
 
     console.log("USER:", user);
     console.log("USERNAME:", user.user_metadata.username);
     
     span.innerHTML = user.user_metadata.username;
+    console.log("LOGGED IN USER ID:", user.id);
+
+// User_recipe:-
+     const { data: recipes, error } = await client
+    .from("Receipe")
+    .select("")
+     .eq("users-id", user.id);
+
+console.log("RECIPES:", recipes);
+
+console.log("RECIPES:", recipes[0].recipename);
+console.log("ERROR:", error);
+
 
 };
 
@@ -95,13 +108,14 @@ console.log(mainid.innerHTML);
 
 
 
-let getrecipe = async()=>{
-    const { data: recipes, error } = await client
-    .from("Receipe")
-    .select("*");
+// let getrecipe = async()=>{
+//     const { data: recipes, error } = await client
+//     .from("Receipe")
+//     .select("*")
+//      .eq("users-id", user.id);
 
-console.log("RECIPES:", recipes);
-console.log("ERROR:", error);
-}
+// console.log("RECIPES:", recipes);
+// console.log("ERROR:", error);
+// }
 
-getrecipe();
+// getrecipe();

@@ -14,10 +14,26 @@ console.log(recipefrom);
 let file;
 let imageURL;
 let  avatarFile ;
+let user ;
 
 let recipeImage = document.querySelector("#recipeImage");
 let Recipe_imgdiv = document.querySelector("#Recipe-imgdiv");
 
+
+//fuction:-
+let getuser = async()=>{
+    const { data: authData, error: authError } =
+    await client.auth.getUser();
+
+if (authError || !authData.user) {
+    console.log("User login nahi hai");
+    return;
+}
+
+ user = authData.user;
+ console.log(user)
+}
+getuser();
 recipeImage.addEventListener("change",()=>{
     console.log("okkkkkkk")
     console.log(recipeImage.files[0]);
@@ -75,7 +91,8 @@ if(data){
            "recipename": userInfo.recipename,
             "category": userInfo.category,
             "cookingTime": userInfo.cookingTime,
-            "description": userInfo.description
+            "description": userInfo.description,
+             "users-id": user.id
    })
 //CONDITIONS:-
 if(error){
