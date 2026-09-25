@@ -8,18 +8,17 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 let span = document.querySelector("#userName");
 let recipebtn = document.querySelector("#recipebtn");
-// console.log(recipebtn);
-// console.log(span);
-// console.log(span.innerHTML);
+
 
 let user;
+let path;
 
+let mainid = document.querySelector("#mainid");
 //fuction
 let getuser = async () => {
 
     const { data: authData, error: authError } =
         await client.auth.getUser();
-
 
     if (authError || !authData.user) {
         console.log("User login nahi hai");
@@ -37,13 +36,64 @@ let getuser = async () => {
 // User_recipe:-
      const { data: recipes, error } = await client
     .from("Receipe")
-    .select("")
+    .select("*")
      .eq("users-id", user.id);
-
 console.log("RECIPES:", recipes);
 
-console.log("RECIPES:", recipes[0].recipename);
+console.log("RECIPES:", recipes);
 console.log("ERROR:", error);
+
+
+    //users-IMAGES:-
+
+recipes.forEach((recipe) => {
+
+    console.log(recipe);
+    console.log(recipe.image_path)
+
+        // Get:-
+  const { data:userUrl } = client
+  .storage
+  .from('images')
+  .getPublicUrl(recipe.image_path)
+  console.log(userUrl.publicUrl);
+  console.log(userUrl.publicUrl);
+//   let imageurl = userUrl.publicUrl
+
+    mainid.innerHTML += `
+        <div class="recipe-card">
+
+          <div class="recipe-image biryani">
+                    <img src="${userUrl.publicUrl}?t=${Date.now()}" alt="pic">
+                </div>
+
+
+            <div class="recipe-content">
+
+                <span class="category">
+                    ${recipe.category}
+                </span>
+
+                <h3>${recipe.recipename}</h3>
+
+                <p>${recipe.description}</p>
+
+                <div class="recipe-bottom">
+                    <span>⭐ 5.0</span>
+                    <span>⏱ ${recipe.cookingTime}</span>
+                </div>
+
+                 <div class="recipe-bottom">
+                       <button>Edit</button>
+                       <button>Delete</button>
+                       
+                    </div>
+
+            </div>
+
+        </div>
+    `;
+});
 
 
 };
@@ -64,8 +114,7 @@ if(error){
 }
 });
 
-let mainid = document.querySelector("#mainid");
-console.log(mainid.innerHTML);
+
 
  recipebtn && recipebtn.addEventListener("click",()=>{
     window.location.href = "recipe.html"

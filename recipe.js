@@ -10,7 +10,6 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 let recipefrom = document.querySelector("#recipefrom");
 console.log(recipefrom);
-
 let file;
 let imageURL;
 let  avatarFile ;
@@ -83,6 +82,8 @@ if(data){
 }else{
     console.log(imageerror);
 }
+console.log(data.path);
+
 
     //RECIPE
     const { error } = await client
@@ -92,7 +93,8 @@ if(data){
             "category": userInfo.category,
             "cookingTime": userInfo.cookingTime,
             "description": userInfo.description,
-             "users-id": user.id
+             "users-id": user.id,
+             "image_path" : data.path
    })
 //CONDITIONS:-
 if(error){
