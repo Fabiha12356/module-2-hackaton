@@ -482,6 +482,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 4px 10px black;
 }
 
 .recipe-image {
@@ -626,4 +627,22 @@ footer {
 }
 #image-profile{
     display: none;
+}
+.recipe-bottom button{
+      border: none;
+    outline: none;
+    background-color: transparent;
+       background: #f26b38;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.recipe-card label {
+       border: none;
+    outline: none;
+    background-color: transparent;
+       background: #f26b38;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
