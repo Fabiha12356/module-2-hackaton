@@ -3,10 +3,6 @@
 A modern and user-friendly **Recipe Management Web Application** built as a hackathon project.  
 The application uses **Supabase** for authentication and data management, allowing users to securely create and manage their recipes.
 
-## 🚀 Live Demo
-
-🔗 **Live Website:** [Add your deployed website link here]
-
 ## 📌 Project Overview
 
 This project is a recipe-based web application where users can create an account, log in securely, access their dashboard, and add their own recipes.
