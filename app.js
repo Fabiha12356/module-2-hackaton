@@ -21,13 +21,13 @@ console.log(signupbtn);
 
  signupbtn && signupbtn.addEventListener("click",(e)=>{
     e.preventDefault();
-    window.location.href = "/signup.html"
+    window.location.href = "signup.html"
 })
 
 
 loginbtn && loginbtn.addEventListener("click",(e)=>{
      e.preventDefault();
-    window.location.href = "/login.html"
+    window.location.href = "login.html"
 })
 
 
