@@ -479,6 +479,9 @@ footer {
     border-radius: 17px;
     overflow: hidden;
     border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .recipe-image {
@@ -620,4 +623,7 @@ footer {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+#image-profile{
+    display: none;
 }

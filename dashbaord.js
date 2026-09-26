@@ -6,15 +6,23 @@ const { createClient } = supabase;
 const client = createClient(supabaseUrl, supabaseKey);
 
 
+//Get:-
 let span = document.querySelector("#userName");
 let recipebtn = document.querySelector("#recipebtn");
+let mainid = document.querySelector("#mainid");
 
 
+
+
+//variables:-
 let user;
 let path;
+let recipe;
+let   avatarFile ;
 
-let mainid = document.querySelector("#mainid");
-//fuction
+
+
+//Fuction:-
 let getuser = async () => {
 
     const { data: authData, error: authError } =
@@ -58,6 +66,7 @@ recipes.forEach((recipe) => {
   .getPublicUrl(recipe.image_path)
   console.log(userUrl.publicUrl);
   console.log(userUrl.publicUrl);
+
 //   let imageurl = userUrl.publicUrl
 
     mainid.innerHTML += `
@@ -67,6 +76,12 @@ recipes.forEach((recipe) => {
                     <img src="${userUrl.publicUrl}?t=${Date.now()}" alt="pic">
                 </div>
 
+                   <label class="my-2 text-center" for="image-profile" >
+                <i class="fa-regular fa-pen-to-square"></i>
+              Choose Image
+            </label>
+
+                <input type="file" id="image-profile" accept="image/*">
 
             <div class="recipe-content">
 
@@ -91,6 +106,46 @@ recipes.forEach((recipe) => {
         </div>
     `;
 });
+let profile = document.querySelectorAll("#image-profile");
+let recipeimage = document.querySelector("#recipe-image")
+console.log(profile)
+
+profile.forEach((profile,index)=>{
+    profile.addEventListener("change",async()=>{
+    console.log("filesselcted");
+    console.log(profile.files[0]);
+    console.log("okkkkkkk");
+    
+    //Update:-
+  avatarFile = profile.files[0]
+  recipe = recipes[index]
+     console.log("FILE:", avatarFile);
+        console.log("PATH:", recipe.image_path);
+  const { data:userdata, error:usererror } = await client
+  .storage
+  .from('images')
+  .update(recipe.image_path, avatarFile, {
+    cacheControl: '0'
+  });
+console.log(userdata);
+console.log(usererror);
+if(userdata){
+    console.log(userdata);
+}else{
+    console.log(usererror);
+}
+        // Get:-
+  const { data:userUrl } = client
+  .storage
+  .from('images')
+  .getPublicUrl(recipe.image_path)
+  console.log(userUrl.publicUrl);
+  console.log(userUrl.publicUrl);
+
+
+})
+})
+
 
 let editbtn = document.querySelectorAll(".editbtn");
 let deletbtn = document.querySelectorAll(".deletebtn");
@@ -162,7 +217,7 @@ getuser();
 
 
 
-// events:
+// Events:-
 
  logoutbtn && logoutbtn.addEventListener("click",async()=>{
      const { error } = await client.auth.signOut()
@@ -173,6 +228,10 @@ if(error){
     window.location.href = "index.html"
 }
 });
+
+
+
+
 
 
 
