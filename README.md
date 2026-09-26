@@ -33,18 +33,28 @@ The main goal of this project is to provide a simple and interactive platform wh
 - 🔒 **Authenticated User Access**
   - Users must log in before accessing recipe management features
 
-## 🔄 User Flow
+Recipe-Website/
+│
+├── index.html
+├── login.html
+├── signup.html
+├── dashboard.html
+├── recipe.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── app.js
+│
+├── assets/
+│   └── images/
+│
+└── README.md
 
-```text
-Signup
-   ↓
-Login
-   ↓
-Dashboard
-   ↓
-Add Recipe
-   ↓
-Recipe Page
-   ↓
-Recipe Stored in Supabase
 
+👩‍💻 Author
+
+[Fabiha💗]
+
+Built with ❤️ as a Hackathon Project.
