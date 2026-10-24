@@ -45,7 +45,7 @@ let getuser = async () => {
      const { data: recipes, error } = await client
     .from("Receipe")
     .select("*")
-     .eq("users-id", user.id);
+ .eq("users-id", user.id);
 console.log("RECIPES:", recipes);
 
 console.log("RECIPES:", recipes);

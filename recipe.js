@@ -33,6 +33,7 @@ if (authError || !authData.user) {
  console.log(user)
 }
 getuser();
+
 recipeImage.addEventListener("change",()=>{
     console.log("okkkkkkk")
     console.log(recipeImage.files[0]);
@@ -82,7 +83,7 @@ if(data){
 }else{
     console.log(imageerror);
 }
-console.log(data.path);
+// console.log(data.path);
 
 
     //RECIPE
